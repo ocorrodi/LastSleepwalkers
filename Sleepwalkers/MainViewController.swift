@@ -18,15 +18,8 @@ class MainViewController : UIViewController{
     //Properties
     
     let locationManager = CLLocationManager()
-    @IBOutlet weak var mainButton: UIButton!
     var initLocation = CLLocationCoordinate2D()
     var currentLocation = CLLocationCoordinate2D()
-    
-    @IBOutlet weak var nameOfContactTextField: UILabel!
-    @IBOutlet weak var contactNumber: UILabel!
-    
-    @IBOutlet weak var sleepModeLabel: UILabel!
-    
     var isGettingLocation = false
     var isRinging = false
     let sunEmoji = "☀️"
@@ -35,7 +28,31 @@ class MainViewController : UIViewController{
     var avPlayer: AVAudioPlayer!
     let blueColor = UIColor(displayP3Red: 64, green: 161, blue: 255, alpha: 1)
     
+    @IBOutlet weak var nameOfContactTextField: UILabel!
+    @IBOutlet weak var contactNumber: UILabel!
+    @IBOutlet weak var sleepModeLabel: UILabel!
+    @IBOutlet weak var mainButton: UIButton!
+
     //Functions
+    
+    
+    @IBAction func getHelpButtonTapped(_ sender: UIButton) {
+        let composeVC = MFMessageComposeViewController()
+        composeVC.messageComposeDelegate = self as! MFMessageComposeViewControllerDelegate
+        
+        
+        //configure content
+        let location = getLocation(manager: locationManager)
+        
+        composeVC.recipients = [defaults.string(forKey: "contactNumber")!]
+        composeVC.body = "I sleepwalked and need your help! Find me at:"
+        self.present(composeVC, animated: true,completion: nil)
+    }
+    
+    //dismiss help controller
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult: MessageComposeResult){
+        controller.dismiss(animated: true, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+    }
     
     @IBAction func unwindToViewController(_ segue: UIStoryboardSegue){
     }

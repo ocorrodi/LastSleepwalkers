@@ -224,6 +224,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="18"/>
                                 <state key="normal" title="Get help from contact"/>
+                                <connections>
+                                    <action selector="getHelpButtonTapped:" destination="YkN-Lb-Un7" eventType="touchUpInside" id="dQ8-Y9-gP3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
