@@ -15,7 +15,8 @@ import MessageUI
 
 class MainViewController : UIViewController{
     
-    //properties
+//Properties
+
     let locationManager = CLLocationManager()
     @IBOutlet weak var mainButton: UIButton!
     var initLocation = CLLocationCoordinate2D()
@@ -32,7 +33,7 @@ class MainViewController : UIViewController{
     var avPlayer: AVAudioPlayer!
     let blueColor = UIColor(displayP3Red: 64, green: 161, blue: 255, alpha: 1)
     
-    //functions
+//Functions
     
     @IBAction func unwindToViewController(_ segue: UIStoryboardSegue){
     }
@@ -50,7 +51,6 @@ class MainViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         mainButton.layer.cornerRadius = 100
-        
         
         nameOfContactTextField.text = "Contact Name: " + ( defaults.string(forKey: "contactName"))!
         contactNumber.text = "Contact Number: " + ( defaults.string(forKey: "contactNumber"))!
@@ -70,7 +70,6 @@ class MainViewController : UIViewController{
     @IBAction func mainButtonTapped(_ sender: UIButton) {
         
         //wakeUp()
-        
         if isRinging{
             avPlayer.stop()
             isRinging = false

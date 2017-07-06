@@ -192,17 +192,17 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="VTx-M8-52t">
-                                <rect key="frame" x="37" y="442" width="300" height="63"/>
+                                <rect key="frame" x="37" y="442" width="300" height="62"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3g-M9-4Sm">
-                                        <rect key="frame" x="125" y="0.0" width="50.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <rect key="frame" x="125.5" y="0.0" width="49" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="20"/>
                                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CW-sR-OTN">
-                                        <rect key="frame" x="125" y="39" width="50.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <rect key="frame" x="125.5" y="38.5" width="49" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="20"/>
                                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -274,10 +274,10 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SIS-AE-LDz">
-                                <rect key="frame" x="59" y="237" width="257" height="275"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SIS-AE-LDz">
+                                <rect key="frame" x="59" y="237" width="257" height="267"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="⏱ we are waking you up and you can turn the alarm off by tapping the button, sleep mode is then turned off!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e1O-kl-hUJ">
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="⏱ We are waking you up and you can turn the alarm off by tapping the button, sleep mode is then turned off! " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e1O-kl-hUJ">
                                         <rect key="frame" x="0.0" y="0.0" width="257" height="95"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -285,7 +285,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="🌙  sleep mode is on, we are tracking your location and will wake you up if you sleepwalked!      " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CLZ-mb-88k">
-                                        <rect key="frame" x="0.0" y="99" width="257" height="94"/>
+                                        <rect key="frame" x="0.0" y="95" width="257" height="94"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="94" id="erB-Ud-sxq"/>
@@ -295,7 +295,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="☀️ sleep mode is off, we are not tracking your current location!                            " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LHj-py-lkw">
-                                        <rect key="frame" x="0.0" y="197" width="257" height="78"/>
+                                        <rect key="frame" x="0.0" y="189" width="257" height="78"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="78" id="63o-l0-a6a"/>
@@ -307,7 +307,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lT-M0-Pd7">
-                                <rect key="frame" x="141" y="543" width="93" height="47"/>
+                                <rect key="frame" x="141" y="535" width="93" height="55"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="93" id="Xb8-em-KUR"/>
@@ -377,7 +377,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButtonTapped:" destination="KPa-Dh-Yfw" eventType="touchUpInside" id="MSt-7D-gXL"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="profileSegue" id="alJ-Es-yhc"/>
                                 </connections>
                             </button>
@@ -393,6 +392,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fP5-hN-ARk"/>
+                    <connections>
+                        <outlet property="mainLabel" destination="PY5-Nc-EXF" id="33v-sD-ndR"/>
+                        <outlet property="nextButton" destination="APg-BO-tXg" id="jKL-2W-guh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sfg-Rc-hFm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

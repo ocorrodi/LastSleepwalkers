@@ -46,9 +46,9 @@
 		9830E45E1F0EA1B10048A647 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				98DCF4791F0E0124005B1055 /* MainViewController.swift */,
 				98DCF47B1F0E012C005B1055 /* InitialViewController.swift */,
 				98DCF4771F0E011C005B1055 /* ProfileViewController.swift */,
+				98DCF4791F0E0124005B1055 /* MainViewController.swift */,
 				9830E45F1F0EA7680048A647 /* InfoViewController.swift */,
 			);
 			name = Controllers;

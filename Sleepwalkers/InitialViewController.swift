@@ -11,20 +11,17 @@ import UIKit
 
 class InitialViewController: UIViewController{
     
+//Properties
     
-    @IBAction func nextButtonTapped(_ sender: Any) {
-
-////            print("info entered")
-////            performSegue(withIdentifier: "loggedInSegue", sender: self)
-//            performSegue(withIdentifier: "profileSegue", sender: self)
-//            
-//        }else{
-//            print("no info entered")
-//            performSegue(withIdentifier: "profileSegue", sender: self)
-//        }
-    }
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var mainLabel: UILabel!
+    
+    
+//Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nextButton.layer.cornerRadius = 15
+        mainLabel.layer.cornerRadius = 15
     }
 }

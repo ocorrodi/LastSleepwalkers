@@ -12,8 +12,8 @@ import CoreLocation
 
 var defaults: UserDefaults = UserDefaults.standard
 class ProfileViewController: UIViewController {
-    
-//properties
+
+//Properties
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contactNameTextField: UITextField!
@@ -22,22 +22,35 @@ class ProfileViewController: UIViewController {
 
     
     
-//functions
+//Functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //segue to main controller if name was entered
         let name = defaults.string(forKey: "name")
         if let name = name{
             performSegue(withIdentifier: "goToMainSegue", sender: self)
         }
         
-        
         nextButton.layer.cornerRadius = 15
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if let name = defaults.string(forKey: "name"),
+           let nameOfContact = defaults.string(forKey: "contactName"),
+            let number = defaults.string(forKey: "contactNumber") {
+            nameTextField.text = name
+            contactNameTextField.text = nameOfContact
+            contactNumberTextField.text = number
+        }
+        
+    }
+    
+    
+    //dismissing keyboard if clicked elsewhere
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
@@ -48,12 +61,8 @@ class ProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    @IBAction func unwindToViewController(_ segue: UIStoryboardSegue){
-    }
-    
 
+    //save data in user defaults
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         //
         if (nameTextField.text == "") || (contactNameTextField.text == "") || (contactNumberTextField.text == "") {
