@@ -48,26 +48,29 @@ class MainViewController : UIViewController, MFMessageComposeViewControllerDeleg
                 let pm = placemarks![0]
                 let address = ABCreateStringWithAddressDictionary(pm.addressDictionary!, false)
                 self.location = address
-                if (pm.areasOfInterest?.count)! > 0{
-                    let areaOfInterest = pm.areasOfInterest?[0]
-                    self.location = areaOfInterest!
-                }else{
-                    self.location = "No description of area"
-                }
+//                if (pm.areasOfInterest?.count)! > 0{
+//                    let areaOfInterest = pm.areasOfInterest?[0]
+//                    self.location = areaOfInterest!
+//                }else{
+//                    self.location = "No description of area"
+//                }
             }
         }
     }
     
     
     @IBAction func getHelpButtonTapped(_ sender: UIButton) {
+        let myLocation = getLocation(manager: locationManager)
+        reverseGeocoing(latitude: myLocation.latitude, longitude: myLocation.longitude)
         let composeVC = MFMessageComposeViewController()
         composeVC.messageComposeDelegate = self
         //configure content
 //        let location = getLocation(manager: locationManager)
-        
         composeVC.recipients = [defaults.string(forKey: "contactNumber")!]
-        composeVC.body = "I sleepwalked and need your help! Find me at: \(self.location)!!!"
-        self.present(composeVC, animated: true,completion: nil)
+        if self.location != "" {
+            composeVC.body = "I sleepwalked and need your help! Find me at: \(self.location)!!!"
+            self.present(composeVC, animated: true,completion: nil)
+        }
     }
     
     //dismiss help controller
