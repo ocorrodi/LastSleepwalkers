@@ -30,18 +30,25 @@ class MainViewController : UIViewController{
     let moonEmoji = "🌙"
     let clockEmoji = "⏱"
     var avPlayer: AVAudioPlayer!
+    let blueColor = UIColor(displayP3Red: 64, green: 161, blue: 255, alpha: 1)
     
     //functions
     
-    func getLocation(manager: CLLocationManager) -> CLLocationCoordinate2D {
-        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        return locValue
+    @IBAction func unwindToViewController(_ segue: UIStoryboardSegue){
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "modifyContact"{
+            return true
+        }
+        if identifier == "toInfo"{
+            return true
+        }
+        return false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mainButton.layer.cornerRadius = 100
         
         
@@ -58,6 +65,8 @@ class MainViewController : UIViewController{
         }
     }
     
+    
+    
     @IBAction func mainButtonTapped(_ sender: UIButton) {
         
         //wakeUp()
@@ -67,7 +76,7 @@ class MainViewController : UIViewController{
             isRinging = false
             isGettingLocation = false
             mainButton.setAttributedTitle(NSAttributedString(string: sunEmoji), for: .normal)
-            mainButton.backgroundColor = UIColor.white
+            mainButton.backgroundColor = UIColor.yellow
             self.initLocation = self.getLocation(manager: locationManager)
         }
         
@@ -98,6 +107,7 @@ class MainViewController : UIViewController{
                 avPlayer.prepareToPlay()
                 avPlayer.play()
                 mainButton.setAttributedTitle(NSAttributedString(string: clockEmoji), for: .normal)
+                mainButton.backgroundColor = UIColor.white
                 isRinging = true
                 
             } catch let error as NSError {
@@ -110,16 +120,21 @@ class MainViewController : UIViewController{
         
     }
     
+    func getLocation(manager: CLLocationManager) -> CLLocationCoordinate2D {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        return locValue
+    }
+    
     func detectLocation(){
         self.currentLocation = getLocation(manager: locationManager)
-        
-        let pointI = MKMapPointForCoordinate(initLocation)
-        let pointC = MKMapPointForCoordinate(currentLocation)
-        var distance : CLLocationDistance = MKMetersBetweenMapPoints(pointI, pointC)
-        if distance.magnitude >= 7{
+        if isGettingLocation {
+            let pointI = MKMapPointForCoordinate(initLocation)
+            let pointC = MKMapPointForCoordinate(currentLocation)
+            var distance : CLLocationDistance = MKMetersBetweenMapPoints(pointI, pointC)
+            if distance.magnitude >= 10{
             
-            wakeUp()
-            
+                wakeUp()
+            }
             
         }
     }

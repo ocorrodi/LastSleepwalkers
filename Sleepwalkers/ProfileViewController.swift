@@ -25,11 +25,19 @@ class ProfileViewController: UIViewController {
 //functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let name = defaults.string(forKey: "name")
+        if let name = name{
+            performSegue(withIdentifier: "goToMainSegue", sender: self)
+        }
+        
+        
         nextButton.layer.cornerRadius = 15
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
@@ -40,6 +48,11 @@ class ProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    @IBAction func unwindToViewController(_ segue: UIStoryboardSegue){
+    }
+    
 
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         //
