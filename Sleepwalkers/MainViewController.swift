@@ -51,7 +51,7 @@ class MainViewController : UIViewController{
     
     //dismiss help controller
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult: MessageComposeResult){
-        controller.dismiss(animated: true, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+        controller.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func unwindToViewController(_ segue: UIStoryboardSegue){
