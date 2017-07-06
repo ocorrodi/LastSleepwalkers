@@ -9,19 +9,29 @@
 /* Begin PBXBuildFile section */
 		987F677D1F0C1C4100049BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987F677C1F0C1C4100049BEA /* AppDelegate.swift */; };
 		987F677F1F0C1C4100049BEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987F677E1F0C1C4100049BEA /* ViewController.swift */; };
-		987F67821F0C1C4100049BEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 987F67801F0C1C4100049BEA /* Main.storyboard */; };
 		987F67841F0C1C4100049BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 987F67831F0C1C4100049BEA /* Assets.xcassets */; };
 		987F67871F0C1C4100049BEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 987F67851F0C1C4100049BEA /* LaunchScreen.storyboard */; };
+		98DCF4781F0E011C005B1055 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DCF4771F0E011C005B1055 /* ProfileViewController.swift */; };
+		98DCF47A1F0E0124005B1055 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DCF4791F0E0124005B1055 /* MainViewController.swift */; };
+		98DCF47C1F0E012C005B1055 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DCF47B1F0E012C005B1055 /* InitialViewController.swift */; };
+		98DCF47E1F0E0133005B1055 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98DCF47D1F0E0133005B1055 /* Main.storyboard */; };
+		98DCF4801F0E013B005B1055 /* alarmNoise.wav in Resources */ = {isa = PBXBuildFile; fileRef = 98DCF47F1F0E013B005B1055 /* alarmNoise.wav */; };
+		98DCF4831F0E0142005B1055 /* Sleepwalkers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98DCF4811F0E0142005B1055 /* Sleepwalkers.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		987F67791F0C1C4100049BEA /* Sleepwalkers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sleepwalkers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		987F677C1F0C1C4100049BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		987F677E1F0C1C4100049BEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		987F67811F0C1C4100049BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		987F677E1F0C1C4100049BEA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		987F67831F0C1C4100049BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		987F67861F0C1C4100049BEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		987F67881F0C1C4100049BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98DCF4771F0E011C005B1055 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		98DCF4791F0E0124005B1055 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		98DCF47B1F0E012C005B1055 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		98DCF47D1F0E0133005B1055 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		98DCF47F1F0E013B005B1055 /* alarmNoise.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarmNoise.wav; sourceTree = "<group>"; };
+		98DCF4821F0E0142005B1055 /* Sleepwalkers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sleepwalkers.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +66,12 @@
 			children = (
 				987F677C1F0C1C4100049BEA /* AppDelegate.swift */,
 				987F677E1F0C1C4100049BEA /* ViewController.swift */,
-				987F67801F0C1C4100049BEA /* Main.storyboard */,
+				98DCF4791F0E0124005B1055 /* MainViewController.swift */,
+				98DCF47B1F0E012C005B1055 /* InitialViewController.swift */,
+				98DCF4771F0E011C005B1055 /* ProfileViewController.swift */,
+				98DCF47D1F0E0133005B1055 /* Main.storyboard */,
+				98DCF47F1F0E013B005B1055 /* alarmNoise.wav */,
+				98DCF4811F0E0142005B1055 /* Sleepwalkers.xcdatamodeld */,
 				987F67831F0C1C4100049BEA /* Assets.xcassets */,
 				987F67851F0C1C4100049BEA /* LaunchScreen.storyboard */,
 				987F67881F0C1C4100049BEA /* Info.plist */,
@@ -125,8 +140,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				987F67871F0C1C4100049BEA /* LaunchScreen.storyboard in Resources */,
+				98DCF4801F0E013B005B1055 /* alarmNoise.wav in Resources */,
 				987F67841F0C1C4100049BEA /* Assets.xcassets in Resources */,
-				987F67821F0C1C4100049BEA /* Main.storyboard in Resources */,
+				98DCF47E1F0E0133005B1055 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,22 +153,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98DCF47C1F0E012C005B1055 /* InitialViewController.swift in Sources */,
+				98DCF4781F0E011C005B1055 /* ProfileViewController.swift in Sources */,
 				987F677F1F0C1C4100049BEA /* ViewController.swift in Sources */,
 				987F677D1F0C1C4100049BEA /* AppDelegate.swift in Sources */,
+				98DCF47A1F0E0124005B1055 /* MainViewController.swift in Sources */,
+				98DCF4831F0E0142005B1055 /* Sleepwalkers.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		987F67801F0C1C4100049BEA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				987F67811F0C1C4100049BEA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		987F67851F0C1C4100049BEA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -302,8 +314,22 @@
 				987F678D1F0C1C4100049BEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		98DCF4811F0E0142005B1055 /* Sleepwalkers.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				98DCF4821F0E0142005B1055 /* Sleepwalkers.xcdatamodel */,
+			);
+			currentVersion = 98DCF4821F0E0142005B1055 /* Sleepwalkers.xcdatamodel */;
+			path = Sleepwalkers.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 987F67711F0C1C4100049BEA /* Project object */;
 }
