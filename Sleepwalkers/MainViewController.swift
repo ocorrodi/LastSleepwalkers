@@ -12,6 +12,7 @@ import CoreLocation
 import MapKit
 import AVFoundation
 import MessageUI
+import AddressBookUI
 
 class MainViewController : UIViewController, MFMessageComposeViewControllerDelegate {
     
@@ -27,13 +28,35 @@ class MainViewController : UIViewController, MFMessageComposeViewControllerDeleg
     let clockEmoji = "⏱"
     var avPlayer: AVAudioPlayer!
     let blueColor = UIColor(displayP3Red: 64, green: 161, blue: 255, alpha: 1)
+    var location = ""
     
     @IBOutlet weak var nameOfContactTextField: UILabel!
     @IBOutlet weak var contactNumber: UILabel!
     @IBOutlet weak var sleepModeLabel: UILabel!
     @IBOutlet weak var mainButton: UIButton!
+    
 
     //Functions
+    
+    func reverseGeocoing(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+    CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) -> Void in
+            if error != nil{
+                print(error)
+                return
+            } else if (placemarks?.count)! > 0 {
+                let pm = placemarks![0]
+                let address = ABCreateStringWithAddressDictionary(pm.addressDictionary!, false)
+                self.location = address
+                if (pm.areasOfInterest?.count)! > 0{
+                    let areaOfInterest = pm.areasOfInterest?[0]
+                    self.location = areaOfInterest!
+                }else{
+                    self.location = "No description of area"
+                }
+            }
+        }
+    }
     
     
     @IBAction func getHelpButtonTapped(_ sender: UIButton) {
@@ -43,7 +66,7 @@ class MainViewController : UIViewController, MFMessageComposeViewControllerDeleg
 //        let location = getLocation(manager: locationManager)
         
         composeVC.recipients = [defaults.string(forKey: "contactNumber")!]
-        composeVC.body = "I sleepwalked and need your help! Find me at:"
+        composeVC.body = "I sleepwalked and need your help! Find me at: \(self.location)!!!"
         self.present(composeVC, animated: true,completion: nil)
     }
     
@@ -134,10 +157,6 @@ class MainViewController : UIViewController, MFMessageComposeViewControllerDeleg
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    func getHelp(){
-        
     }
     
     func getLocation(manager: CLLocationManager) -> CLLocationCoordinate2D {

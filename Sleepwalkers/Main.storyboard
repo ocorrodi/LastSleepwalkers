@@ -218,9 +218,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBs-hU-jX5">
-                                <rect key="frame" x="94" y="569" width="186" height="30"/>
+                                <rect key="frame" x="62" y="577" width="250" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="oc0-J1-Qn3"/>
+                                    <constraint firstAttribute="height" constant="30" id="1pi-45-Sw3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="18"/>
                                 <state key="normal" title="Get help from contact"/>
@@ -232,15 +232,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VTx-M8-52t" firstAttribute="top" secondItem="oxa-VF-RER" secondAttribute="bottom" constant="79" id="30r-4d-R91"/>
-                            <constraint firstItem="hl4-cm-STS" firstAttribute="centerX" secondItem="mBs-hU-jX5" secondAttribute="centerX" id="5T4-pc-hd7"/>
                             <constraint firstItem="hl4-cm-STS" firstAttribute="trailing" secondItem="oxa-VF-RER" secondAttribute="trailing" id="9NO-wV-M27"/>
                             <constraint firstItem="VTx-M8-52t" firstAttribute="top" secondItem="hl4-cm-STS" secondAttribute="bottom" constant="33" id="GWz-My-fHX"/>
-                            <constraint firstItem="yS7-pe-Xew" firstAttribute="top" secondItem="mBs-hU-jX5" secondAttribute="bottom" constant="68" id="Rof-A0-JCd"/>
                             <constraint firstItem="oxa-VF-RER" firstAttribute="top" secondItem="Vf7-Tz-ylu" secondAttribute="bottom" constant="124" id="Y7b-PV-NZd"/>
+                            <constraint firstItem="mBs-hU-jX5" firstAttribute="centerX" secondItem="VTx-M8-52t" secondAttribute="centerX" id="bc5-cz-ugi"/>
                             <constraint firstItem="hl4-cm-STS" firstAttribute="leading" secondItem="oxa-VF-RER" secondAttribute="leading" id="cBR-sD-ZFu"/>
-                            <constraint firstItem="mBs-hU-jX5" firstAttribute="top" secondItem="VTx-M8-52t" secondAttribute="bottom" constant="40" id="da4-q2-0hP"/>
+                            <constraint firstItem="mBs-hU-jX5" firstAttribute="top" secondItem="VTx-M8-52t" secondAttribute="bottom" constant="48" id="epE-Ak-9y1"/>
                             <constraint firstItem="oxa-VF-RER" firstAttribute="centerX" secondItem="l2X-kT-r7W" secondAttribute="centerX" id="h0f-pi-Deo"/>
+                            <constraint firstItem="yS7-pe-Xew" firstAttribute="top" secondItem="mBs-hU-jX5" secondAttribute="bottom" constant="60" id="iFD-Lj-Ims"/>
                             <constraint firstItem="hl4-cm-STS" firstAttribute="top" secondItem="oxa-VF-RER" secondAttribute="bottom" constant="25" id="lZR-j7-aKj"/>
+                            <constraint firstItem="mBs-hU-jX5" firstAttribute="leading" secondItem="l2X-kT-r7W" secondAttribute="leadingMargin" constant="46" id="qQz-hp-8V3"/>
                             <constraint firstItem="VTx-M8-52t" firstAttribute="centerX" secondItem="l2X-kT-r7W" secondAttribute="centerX" id="qnf-zb-647"/>
                         </constraints>
                     </view>
