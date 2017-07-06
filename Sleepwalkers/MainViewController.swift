@@ -13,7 +13,7 @@ import MapKit
 import AVFoundation
 import MessageUI
 
-class MainViewController : UIViewController{
+class MainViewController : UIViewController, MFMessageComposeViewControllerDelegate {
     
     //Properties
     
@@ -38,11 +38,9 @@ class MainViewController : UIViewController{
     
     @IBAction func getHelpButtonTapped(_ sender: UIButton) {
         let composeVC = MFMessageComposeViewController()
-        composeVC.messageComposeDelegate = self as! MFMessageComposeViewControllerDelegate
-        
-        
+        composeVC.messageComposeDelegate = self
         //configure content
-        let location = getLocation(manager: locationManager)
+//        let location = getLocation(manager: locationManager)
         
         composeVC.recipients = [defaults.string(forKey: "contactNumber")!]
         composeVC.body = "I sleepwalked and need your help! Find me at:"
@@ -50,7 +48,7 @@ class MainViewController : UIViewController{
     }
     
     //dismiss help controller
-    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult: MessageComposeResult){
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: nil)
     }
     
