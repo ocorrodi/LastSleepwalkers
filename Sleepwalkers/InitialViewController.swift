@@ -11,17 +11,17 @@ import UIKit
 
 class InitialViewController: UIViewController{
     
-//Properties
+    //Properties
     
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var labelView: UIView!
     
     
-//Functions
+    //Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nextButton.layer.cornerRadius = 15
-        mainLabel.layer.cornerRadius = 15
+        labelView.layer.cornerRadius = 15
     }
 }

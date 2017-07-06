@@ -15,8 +15,8 @@ import MessageUI
 
 class MainViewController : UIViewController{
     
-//Properties
-
+    //Properties
+    
     let locationManager = CLLocationManager()
     @IBOutlet weak var mainButton: UIButton!
     var initLocation = CLLocationCoordinate2D()
@@ -24,6 +24,8 @@ class MainViewController : UIViewController{
     
     @IBOutlet weak var nameOfContactTextField: UILabel!
     @IBOutlet weak var contactNumber: UILabel!
+    
+    @IBOutlet weak var sleepModeLabel: UILabel!
     
     var isGettingLocation = false
     var isRinging = false
@@ -33,7 +35,7 @@ class MainViewController : UIViewController{
     var avPlayer: AVAudioPlayer!
     let blueColor = UIColor(displayP3Red: 64, green: 161, blue: 255, alpha: 1)
     
-//Functions
+    //Functions
     
     @IBAction func unwindToViewController(_ segue: UIStoryboardSegue){
     }
@@ -77,12 +79,14 @@ class MainViewController : UIViewController{
             mainButton.setAttributedTitle(NSAttributedString(string: sunEmoji), for: .normal)
             mainButton.backgroundColor = UIColor.yellow
             self.initLocation = self.getLocation(manager: locationManager)
+            self.sleepModeLabel.text = "Tap before  😴"
         }
         
         if isGettingLocation {
             isGettingLocation = false
             mainButton.setAttributedTitle(NSAttributedString(string: sunEmoji), for: .normal)
             mainButton.backgroundColor = UIColor.yellow
+            self.sleepModeLabel.text = "Tap before  sleeping 😴"
             
         } else {
             isGettingLocation = true
@@ -90,6 +94,7 @@ class MainViewController : UIViewController{
             mainButton.backgroundColor = UIColor.black
             self.initLocation = self.getLocation(manager: locationManager)
             _ = Timer.scheduledTimer(timeInterval: 5, target: self, selector: Selector("detectLocation"), userInfo: nil, repeats: true)
+            self.sleepModeLabel.text = "Tap when awake 🛌"
             
         }
         
@@ -108,6 +113,7 @@ class MainViewController : UIViewController{
                 mainButton.setAttributedTitle(NSAttributedString(string: clockEmoji), for: .normal)
                 mainButton.backgroundColor = UIColor.white
                 isRinging = true
+                self.sleepModeLabel.text = "Tap to stop alarm ⏰"
                 
             } catch let error as NSError {
                 print(error.localizedDescription)
@@ -130,12 +136,14 @@ class MainViewController : UIViewController{
             let pointI = MKMapPointForCoordinate(initLocation)
             let pointC = MKMapPointForCoordinate(currentLocation)
             var distance : CLLocationDistance = MKMetersBetweenMapPoints(pointI, pointC)
-            if distance.magnitude >= 10{
-            
+            if distance.magnitude >= 12.5{
+                
                 wakeUp()
             }
             
         }
     }
+    
+    
     
 }
