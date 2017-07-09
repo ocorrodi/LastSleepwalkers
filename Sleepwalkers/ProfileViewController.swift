@@ -24,17 +24,11 @@ class ProfileViewController: UIViewController {
     
     //Functions
     
-    @IBAction func unwindToViewController(_ segue: UIStoryboardSegue){
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //segue to main controller if name was entered
-        let name = defaults.string(forKey: "name")
-        if let name = name{
-            performSegue(withIdentifier: "goToMainSegue", sender: self)
-        }
         
         nextButton.layer.cornerRadius = 15
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -77,6 +71,7 @@ class ProfileViewController: UIViewController {
             defaults.set(contactNumberTextField.text, forKey:"contactNumber")
             defaults.set(nameTextField.text, forKey:"name")
             defaults.set(contactNameTextField.text, forKey:"contactName")
+            self.performSegue(withIdentifier: "goToMainSegue", sender: self)
         }
     }
     

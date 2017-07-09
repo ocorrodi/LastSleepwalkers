@@ -13,8 +13,9 @@ import MapKit
 import AVFoundation
 import MessageUI
 import AddressBookUI
+import AudioToolbox
 
-class MainViewController : UIViewController, MFMessageComposeViewControllerDelegate {
+class MainViewController : UIViewController, MFMessageComposeViewControllerDelegate, CLLocationManagerDelegate {
     
     //Properties
     
@@ -29,6 +30,7 @@ class MainViewController : UIViewController, MFMessageComposeViewControllerDeleg
     var avPlayer: AVAudioPlayer!
     let blueColor = UIColor(displayP3Red: 64, green: 161, blue: 255, alpha: 1)
     var location = ""
+    let composeVC = MFMessageComposeViewController()
     
     @IBOutlet weak var nameOfContactTextField: UILabel!
     @IBOutlet weak var contactNumber: UILabel!
@@ -38,39 +40,46 @@ class MainViewController : UIViewController, MFMessageComposeViewControllerDeleg
 
     //Functions
     
+    
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+
+        self.performSegue(withIdentifier: "editInfo", sender: self)
+    }
+    
+    
     func reverseGeocoing(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let location = CLLocation(latitude: latitude, longitude: longitude)
-    CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) -> Void in
-            if error != nil{
-                print(error)
-                return
-            } else if (placemarks?.count)! > 0 {
-                let pm = placemarks![0]
-                let address = ABCreateStringWithAddressDictionary(pm.addressDictionary!, false)
-                self.location = address
-//                if (pm.areasOfInterest?.count)! > 0{
-//                    let areaOfInterest = pm.areasOfInterest?[0]
-//                    self.location = areaOfInterest!
-//                }else{
-//                    self.location = "No description of area"
-//                }
+        print(location)
+        CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) -> Void in
+            print(self.location)
+            self.composeVC.recipients = [defaults.string(forKey: "contactNumber")!]
+            if self.location != "" {
+                self.composeVC.body = "I sleepwalked and need your help! Find me at: \(self.location)!!!"
+                self.present(self.composeVC, animated: true,completion: nil)
             }
+            
+//            if error != nil{
+//                print(error)
+//                return
+//            } else if (placemarks?.count)! > 0 {
+//                let pm = placemarks![0]
+//                let address = ABCreateStringWithAddressDictionary(pm.addressDictionary!, false)
+//                self.location = address
+//                //                if (pm.areasOfInterest?.count)! > 0{
+//                //                    let areaOfInterest = pm.areasOfInterest?[0]
+//                //                    self.location = areaOfInterest!
+//                //                }else{
+//                //                    self.location = "No description of area"
+//                //                }
+//            }
         }
     }
+    
     
     
     @IBAction func getHelpButtonTapped(_ sender: UIButton) {
         let myLocation = getLocation(manager: locationManager)
         reverseGeocoing(latitude: myLocation.latitude, longitude: myLocation.longitude)
-        let composeVC = MFMessageComposeViewController()
-        composeVC.messageComposeDelegate = self
-        //configure content
-//        let location = getLocation(manager: locationManager)
-        composeVC.recipients = [defaults.string(forKey: "contactNumber")!]
-        if self.location != "" {
-            composeVC.body = "I sleepwalked and need your help! Find me at: \(self.location)!!!"
-            self.present(composeVC, animated: true,completion: nil)
-        }
     }
     
     //dismiss help controller
@@ -81,19 +90,21 @@ class MainViewController : UIViewController, MFMessageComposeViewControllerDeleg
     @IBAction func unwindToViewController(_ segue: UIStoryboardSegue){
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "modifyContact"{
-            return true
-        }
-        if identifier == "toInfo"{
-            return true
-        }
-        return false
-    }
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//        if identifier == "modifyContact"{
+//            return true
+//        }
+//        if identifier == "toInfo"{
+//            return true
+//        }
+//        return false
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mainButton.layer.cornerRadius = 100
+        
+        composeVC.messageComposeDelegate = self
         
         nameOfContactTextField.text = "Contact Name: " + ( defaults.string(forKey: "contactName"))!
         contactNumber.text = "Contact Number: " + ( defaults.string(forKey: "contactNumber"))!
@@ -106,6 +117,7 @@ class MainViewController : UIViewController, MFMessageComposeViewControllerDeleg
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
+        locationManager.delegate = self
     }
     
     
@@ -140,6 +152,15 @@ class MainViewController : UIViewController, MFMessageComposeViewControllerDeleg
         }
         
     }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .denied {
+            let alertController = UIAlertController(title: "", message:
+                "Enable location services in settings for sleepwalkers to function properly", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+    }
     
     func wakeUp() {
         if let urlpath = Bundle.main.path(forResource: "alarmNoise",ofType: "wav") {
@@ -151,6 +172,10 @@ class MainViewController : UIViewController, MFMessageComposeViewControllerDeleg
                 avPlayer = try AVAudioPlayer(contentsOf: url)
                 avPlayer.prepareToPlay()
                 avPlayer.play()
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
                 mainButton.setAttributedTitle(NSAttributedString(string: clockEmoji), for: .normal)
                 mainButton.backgroundColor = UIColor.white
                 isRinging = true

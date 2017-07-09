@@ -16,6 +16,17 @@ class InitialViewController: UIViewController{
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var labelView: UIView!
     
+    @IBAction func nextButtonTapped(_ sender: Any) {
+            let name = defaults.string(forKey: "name")
+                if let name = name{
+                        print("info entered")
+                        performSegue(withIdentifier: "loggedInSegue", sender: self)
+                }else{
+                    print("no info entered")
+                    performSegue(withIdentifier: "profileSegue", sender: self)
+                    }
+            }
+    
     
     //Functions
     
@@ -24,4 +35,5 @@ class InitialViewController: UIViewController{
         nextButton.layer.cornerRadius = 15
         labelView.layer.cornerRadius = 15
     }
+    
 }

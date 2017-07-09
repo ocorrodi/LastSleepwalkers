@@ -6,13 +6,6 @@
 //  Copyright © 2017 Olivia Corrodi. All rights reserved.
 //
 
-//
-//  AppDelegate.swift
-//  Sleepwalkers
-//
-//  Created by Portia Wang on 7/4/17.
-//  Copyright © 2017 Portia Wang. All rights reserved.
-//
 
 import UIKit
 import CoreData
@@ -20,7 +13,6 @@ import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     var window: UIWindow?
     var locationManager: CLLocationManager?
 

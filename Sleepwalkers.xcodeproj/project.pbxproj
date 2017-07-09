@@ -76,8 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				980321791F0EE759006EA4BB /* icon.jpg */,
-				987F677C1F0C1C4100049BEA /* AppDelegate.swift */,
 				98DCF47F1F0E013B005B1055 /* alarmNoise.wav */,
+				987F677C1F0C1C4100049BEA /* AppDelegate.swift */,
 				9830E45E1F0EA1B10048A647 /* Controllers */,
 				9830E45C1F0E9F480048A647 /* Main.storyboard */,
 				98DCF4811F0E0142005B1055 /* Sleepwalkers.xcdatamodeld */,
@@ -119,7 +119,7 @@
 				TargetAttributes = {
 					987F67781F0C1C4100049BEA = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 752NJF78ZT;
+						DevelopmentTeam = N68XMY8ULD;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -270,10 +270,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 752NJF78ZT;
+				DEVELOPMENT_TEAM = N68XMY8ULD;
 				INFOPLIST_FILE = Sleepwalkers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Olivia-Corrodi.Sleepwalkers";
+				PRODUCT_BUNDLE_IDENTIFIER = "Olivia-Corrodi.Sleepwalkers2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -283,10 +283,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 752NJF78ZT;
+				DEVELOPMENT_TEAM = N68XMY8ULD;
 				INFOPLIST_FILE = Sleepwalkers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Olivia-Corrodi.Sleepwalkers";
+				PRODUCT_BUNDLE_IDENTIFIER = "Olivia-Corrodi.Sleepwalkers2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
